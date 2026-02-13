@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌶️ Diagnostic Alignement | Albane Réal Conseil</title>
+    <style>
+        :root {
+            --primary-color: #5d2e5d;
+            --secondary-color: #ff4d29;
+            --bg-color: #fdf5e6;
+            --text-color: #2c3e50;
+        }
+
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 0; margin: 0; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 2.5rem; background: #fff; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        h1 { color: var(--primary-color); font-size: 1.8rem; text-align: center; margin-bottom: 1.5rem; }
+        h2 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-top: 2rem; }
+        .highlight { color: var(--secondary-color); font-weight: bold; }
+        
+        .intro-box { background: #fffaf0; border: 1px dashed var(--primary-color); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 1.2rem 2.5rem; background: var(--secondary-color); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 77, 41, 0.3); }
+        
+        .option { border: 2px solid #f0f0f0; padding: 1.2rem; margin-bottom: 15px; border-radius: 12px; cursor: pointer; transition: 0.3s; background: #fff; }
+        .option:hover { border-color: var(--secondary-color); background: #fff9f8; }
+
+        .rgpd-box { background: #f9f9f9; padding: 1.2rem; border-radius: 8px; font-size: 0.85rem; text-align: left; border: 1px solid #eee; margin: 1.5rem 0; }
+        .footer-signature { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; text-align: center; font-style: italic; color: var(--primary-color); }
+        .cta-sub { display: block; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; color: var(--text-color); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="section-intro" class="section active">
+        <h1>🌶️ Diagnostic d'Alignement Professionnel</h1>
+        <p><strong>Vous êtes manager territorial ?</strong></p>
+        <p>Vous êtes au cœur des territoires. Entre élus, commerçants, habitants et stratégies locales. Vous pilotez, vous coordonnez, vous apaisez, vous relancez.</p>
+        <p>Vous êtes à la fois visionnaire et opérationnel. Mais parfois… À force de porter, d’arbitrer, de convaincre, on oublie de se demander : <span class="highlight">Et moi, suis-je encore pleinement à ma place ?</span></p>
+        
+        <div class="intro-box">
+            <p>Je suis <strong>Albane Réal</strong>. Depuis plus de 20 ans, j’accompagne les collectivités et les managers de centre-ville à structurer, incarner et dynamiser leurs projets.</p>
+            <p>J’ai vu des trajectoires se redresser grâce à un simple temps de lucidité. <strong>Ce questionnaire est ce temps.</strong></p>
+        </div>
+
+        <p>🎯 <strong>En 12 questions, vous allez pouvoir :</strong></p>
+        <ul>
+            <li>Mesurer votre niveau d’alignement professionnel</li>
+            <li>Identifier les signaux faibles</li>
+            <li>Clarifier votre posture actuelle</li>
+        </ul>
+        
+        <p style="text-align: center; margin-top: 2rem;">
+            👉 <em>Comptez environ 3 minutes. <strong>Répondez avec sincérité.</strong> Votre trajectoire mérite votre attention.</em><br><br>
+            <button id="btn-start" class="btn">Commencer l'évaluation</button>
+        </p>
+    </div>
+
+    <div id="section-quiz" class="section">
+        <div id="quiz-content"></div>
+    </div>
+
+    <div id="section-capture" class="section">
+        <h2>Comment avoir le compte rendu d’une experte ?</h2>
+        <p>Déposez votre mail pour recevoir votre analyse complète et vos pistes d'action :</p>
+        <input type="email" id="user-email" placeholder="votre-email@exemple.com" style="width:100%; padding:1rem; margin: 1rem 0; border:2px solid #eee; border-radius:10px; box-sizing: border-box; font-size: 1rem;">
+        
+        <div class="rgpd-box">
+            <strong>Règles RGPD : Protection de vos données</strong><br>
+            Conformément au Règlement Général sur la Protection des Données (RGPD), les informations recueillies via ce formulaire sont destinées exclusivement à Albane Réal Conseil pour l'envoi de votre diagnostic et la proposition d'un échange professionnel. Vos données ne seront jamais cédées ou vendues à des tiers. Elles sont conservées pour une durée de 12 mois. Vous disposez d'un droit d'accès, de rectification et de suppression en contactant : <strong>real.albaneconseil@gmail.com</strong>.
+            <br><br>
+            <label style="display: flex; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="rgpd-consent" checked>
+                <span>J'accepte ces conditions et le traitement de mes données.</span>
+            </label>
+        </div>
+
+        <p class="highlight" style="text-align: center;">Vous venez de faire quelque chose d’important : vous poser les bonnes questions.</p>
+        
+        <div style="text-align: center;">
+            <button id="btn-results" class="btn">Voir mon analyse</button>
+        </div>
+    </div>
+
+    <div id="section-results" class="section">
+        <div id="result-display"></div>
+        
+        <div class="footer-signature">
+            <p>Depuis plus de 20 ans, j’accompagne les managers territoriaux à clarifier leur posture et structurer leur évolution. Chaque trajectoire mérite lucidité, méthode et exigence.</p>
+            <strong>— Albane Réal</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = [
+        { q: "1. Lorsque vous vous réveillez un jour de travail, comment vous sentez-vous vraiment ?", a: "Je me lève avec énergie, prêt à agir et à contribuer.", b: "Je me sens un peu fatigué ou dans une routine qui s’installe.", c: "J’éprouve une tension ou une perte d’envie dès le matin." },
+        { q: "2. Dans votre relation avec les élus et décideurs, comment vivez-vous votre posture ?", a: "Je me sens dans une posture de conseil, avec recul et légitimité.", b: "J’ai parfois du mal à poser mes limites ou à dire non.", c: "Je me sens épuisé ou en perte de sens dans ces interactions." },
+        { q: "3. Une fois la journée terminée, parvenez-vous à couper avec vos dossiers ?", a: "La déconnexion est facile et immédiate pour moi.", b: "Certains dossiers génèrent des ruminations le soir.", c: "Le travail envahit presque tout mon espace mental." },
+        { q: "4. Quel regard portez-vous sur l’impact concret de vos actions sur le territoire ?", a: "Ma contribution est utile, visible et reconnue.", b: "J’ai l’impression d’un combat permanent pour peu de résultats.", c: "Je ressens une forme d'inutilité ou l'impression de 'brasser de l'air'." },
+        { q: "5. Comment décririez-vous le climat au sein de votre équipe ou avec vos collègues ?", a: "Nous sommes dans une dynamique de confiance et d’échange.", b: "Les relations sont cordiales, mais je ressens un certain isolement.", c: "Il y a des tensions et je ne me sens plus vraiment à ma place." },
+        { q: "6. Si l'on vous proposait exactement le même poste ailleurs, quelle serait votre réaction ?", a: "J'irais avec enthousiasme, j'aime ce métier.", b: "J'hésiterais, je perçois une envie d'autre chose.", c: "Ce serait un refus catégorique, je suis à saturation." },
+        { q: "7. Dans quel état d'énergie terminez-vous généralement vos semaines ?", a: "Fatigué mais satisfait du travail accompli.", b: "Vidé, j'ai besoin de tout mon week-end pour récupérer.", c: "Dans un état d'épuisement émotionnel profond." },
+        { q: "8. Face à la complexité administrative inhérente à votre poste, comment réagissez-vous ?", a: "C'est un défi que je maîtrise avec mon expertise.", b: "C'est une lourdeur qui devient pesante au quotidien.", c: "C'est un obstacle qui me paralyse de plus en plus." },
+        { q: "9. Vos valeurs personnelles sont-elles en accord avec les missions que vous menez ?", a: "Oui, je me sens en alignement parfait.", b: "Je commence à ressentir quelques frictions éthiques.", c: "Le décalage est devenu insupportable pour moi." },
+        { q: "10. Quelle place reste-t-il pour votre créativité et votre capacité d'innovation ?", a: "Je suis toujours force de proposition et j'innove.", b: "Je me contente de gérer les affaires courantes.", c: "Ma créativité semble totalement éteinte." },
+        { q: "11. Quand vous regardez votre parcours jusqu'ici, que vous dites-vous ?", a: "Je suis fier du chemin parcouru.", b: "Je me demande si je n'ai pas fait le tour de mon poste.", c: "Je regrette certains de mes choix professionnels." },
+        { q: "12. Si vos proches devaient parler de votre travail, que diraient-ils ?", a: "Ils voient ma passion et mon engagement.", b: "Ils entendent souvent mes plaintes sur le manque de moyens.", c: "Ils savent que je n'ai plus du tout envie d'en parler." }
+    ];
+
+    let currentStep = 0;
+    let scores = { A: 0, B: 0, C: 0 };
+
+    const showSection = (id) => {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        const target = document.getElementById(id);
+        if (target) target.classList.add('active');
+        window.scrollTo(0, 0);
+    };
+
+    const renderQuestion = () => {
+        const q = questions[currentStep];
+        const content = document.getElementById('quiz-content');
+        content.innerHTML = `
+            <p style="text-align:right; font-size:0.8rem; color:#888;">Question ${currentStep + 1}/12</p>
+            <div style="font-size:1.3rem; font-weight:bold; color:var(--primary-color); margin-bottom:2rem;">${q.q}</div>
+            <div class="option" data-choice="A">${q.a}</div>
+            <div class="option" data-choice="B">${q.b}</div>
+            <div class="option" data-choice="C">${q.c}</div>
+        `;
+        
+        content.querySelectorAll('.option').forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                const choice = e.currentTarget.getAttribute('data-choice');
+                scores[choice]++;
+                currentStep++;
+                if (currentStep < questions.length) {
+                    renderQuestion();
+                } else {
+                    showSection('section-capture');
+                }
+            });
+        });
+    };
+
+    document.getElementById('btn-start').addEventListener('click', () => {
+        showSection('section-quiz');
+        renderQuestion();
+    });
+
+    document.getElementById('btn-results').addEventListener('click', () => {
+        const email = document.getElementById('user-email').value;
+        const consent = document.getElementById('rgpd-consent').checked;
+
+        if (!email) { alert("Veuillez entrer votre email."); return; }
+        if (!consent) { alert("Veuillez accepter les conditions RGPD."); return; }
+        
+        let p = (scores.C >= scores.B && scores.C >= scores.A) ? 'C' : (scores.B >= scores.A ? 'B' : 'A');
+        let res = "";
+
+        if(p === 'C') {
+            res = `
+                <h2 style="color:red">🔴 « Il est temps de vous accorder une pause… et de faire le point. »</h2>
+                <p>Ce que vos réponses révèlent n’est pas anodin. Vous ne traversez pas simplement une phase de fatigue. Il semble y avoir un <strong>décalage plus profond</strong> entre votre engagement, vos valeurs et la réalité de votre quotidien professionnel.</p>
+                <p><strong>L’étape suivante :</strong> Un regard extérieur, structuré et bienveillant, peut vous aider à clarifier ce qui vous épuise réellement et à distinguer l’usure conjoncturelle du désalignement structurel. </p>
+                <p>Je vous propose un premier échange de 30 minutes pour poser un diagnostic clair et structurer les prochaines étapes de votre trajectoire.</p>
+                <div style="text-align:center; margin:2rem 0;">
+                    <span class="cta-sub">🎯 30 minutes pour poser un diagnostic clair.</span>
+                    <a href="https://www.albanerealconseil.fr/contact" class="btn" style="background:red">👉 Prendre rendez-vous avec Albane</a>
+                </div>
+            `;
+        } else if(p === 'B') {
+            res = `
+                <h2 style="color:#f39c12">🟡 « Vous êtes dans une phase de questionnement… et c’est sain. »</h2>
+                <p>Vos réponses traduisent une tension légère mais réelle. Vous tenez, vous assurez, mais quelque chose s'érode. <strong>Le questionnement est souvent le signe d’une évolution intérieure nécessaire. Encore faut-il savoir l’identifier et le structurer.</strong></p>
+                <p><strong>L’étape suivante :</strong> Un échange stratégique peut vous aider à faire la part entre fatigue passagère et désalignement émergent, et à identifier les ajustements concrets qui redonneront cohérence et énergie à votre posture.</p>
+                <div style="text-align:center; margin:2rem 0;">
+                    <span class="cta-sub">🎯 30 minutes pour identifier vos leviers d'ajustement.</span>
+                    <a href="https://www.albanerealconseil.fr/contact" class="btn" style="background:#f39c12">👉 Faire le point avec Albane</a>
+                </div>
+            `;
+        } else {
+            res = `
+                <h2 style="color:green">🟢 « Vous êtes solidement aligné. »</h2>
+                <p>Vos réponses traduisent un engagement vivant et une posture maîtrisée. Votre socle professionnel est stable. <strong>L'excellence n'est pas une destination mais une dynamique qu'il faut savoir entretenir pour ne pas basculer dans l'inertie.</strong></p>
+                <p><strong>L’étape suivante :</strong> Cet alignement est une force qu'il convient d'exploiter pour amplifier votre impact territorial. Un entretien d’anticipation nous permettra de challenger votre trajectoire et de renforcer votre posture stratégique pour les cycles à venir.</p>
+                <div style="text-align:center; margin:2rem 0;">
+                    <span class="cta-sub">🎯 30 minutes pour amplifier votre impact stratégique.</span>
+                    <a href="https://www.albanerealconseil.fr/contact" class="btn" style="background:green">👉 Anticiper la suite avec Albane</a>
+                </div>
+            `;
+        }
+        
+        document.getElementById('result-display').innerHTML = res;
+        showSection('section-results');
+    });
+});
+</script>
+</body>
+</html>
